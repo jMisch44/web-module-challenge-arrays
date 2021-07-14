@@ -45,11 +45,13 @@ Use the copy function below to do the following:
   2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-  /*your code here*/
+//add your parameter - I would call it array
+function copy(array){
+  return [...array];
+  //return a copy if the original using the spread operator
 }    
 
-
+console.log('task 1', originalFlavors);
 
 
 
@@ -63,10 +65,20 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
 
+//taking one parameter which is an array so i would call it array
+function is31Flavors(array){
+  //we need an if statement to check that the length of the array is 31 flavors. if it is we want to return true(boolean - no quotes)
+  //else we want to return false
 
-function is31Flavors(/*your code here*/){
- /*your code here*/
+  if(array.length === 31){
+    return true;
+  } else{
+    return false;
+  }
 }
+
+
+console.log('task 2', is31Flavors(originalFlavors));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -80,10 +92,15 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
- /*your code here*/
+// 2 parameters the first is an array the second is a string
+function addFlavor(array, string){
+  // need to add the string to the front of the array- use unshift for this
+  //return the array
+  array.unshift(string);
+  return array;
 }
+
+console.log('task 3', addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -97,10 +114,15 @@ Use the removeLastFlavor function below to do the following:
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+// 1 parameter which is an array
+function removeLastFlavor(array){
+  //remove the last item from the array using .pop()
+  //return the array
+ array.pop();
+ return array
 }
 
+console.log('task 4', removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -114,10 +136,14 @@ Use the getFlavorByIndex function below to do the following:
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+//2 parameters - the first is an array the second is a number which will be the index
+function getFlavorByIndex(array, index){
+  //returning the index at the given number
+  //return array[index]
+  return array[index];
 }
 
+console.log('task 5', getFlavorByIndex(originalFlavors, 2));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
@@ -170,12 +196,13 @@ Use the filterByWord function below to do the following:
 function filterByWord(array, string){
   //set up new array to push results to
   const filteredArray = [];
-  //loop throught entire array
+  //loop through entire array and check if idex includes string
   for(let i = 0; i < array.length; i++){
     if(array[i].includes(string)){
       filteredArray.push(array[i]);
     }
   }
+  //we want our filter results returned to the array
   return filteredArray
 }
 
@@ -197,7 +224,7 @@ function getAverageWordLength(/*code here*/){
   /*code here*/
 }
 
-
+//if you want to solve these move the arrays above the function
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
 from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors and store it in an array called randomFlavors.
